@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+
+    
+
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-card class="ion-text-center">
+
+    <ion-card-title class="ion-text-center">
+      <ion-label>
+        <h1>Welcome!</h1>
+      </ion-label>
+    </ion-card-title>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="floating">User name o Email</ion-label>
+        <ion-input type="text" name="username"  [(ngModel)]="user.input"
+        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"  required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" >Password</ion-label>
+        
+        <ion-input type="password" name="pass"   [(ngModel)]="user.pass"  required ></ion-input>
+      </ion-item>
+
+    </ion-card-content>
+
+    
+    <ion-button fill="outline" shape="round"  (click)="login()">Login</ion-button>
+
+
+    <ion-button fill="outline" shape="round" routerLink="/formulario" >Sing up</ion-button>
+
+  </ion-card>
+
+</ion-content>

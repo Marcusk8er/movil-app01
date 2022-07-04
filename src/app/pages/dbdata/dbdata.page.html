@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Back" color="primary" mode="ios" >
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Data</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-list #myList>
+        <ion-list-header>
+          <ion-label>
+            My Data
+          </ion-label>
+        </ion-list-header>
+
+        <ion-list>
+          <ion-item-sliding *ngFor="let d of data">
+            <ion-item>
+              <ion-label text-wrap>
+                <h2>{{d.name}}</h2> 
+                <ion-text>
+                  <p>{{d.lastname}}</p>
+                  <p> {{d.years}}</p>
+                  <p>{{d.gender}}</p>
+                  <p>{{d.email}}</p>
+                  <p>{{d.password}}</p>
+                  <p>{{d.username}}</p>
+                </ion-text> 
+                <p>{{d.modified | date: 'short'}}</p>
+              </ion-label>
+
+
+            </ion-item>
+
+            <ion-item-options side="end">
+              <ion-item-option (click)="updateData(d)" color="primary">Update</ion-item-option>
+              <ion-item-option (click)="deleteData(d)" color="danger">Delete</ion-item-option>
+              
+            </ion-item-options>
+
+            
+          </ion-item-sliding>
+        </ion-list>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

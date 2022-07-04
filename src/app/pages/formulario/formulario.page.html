@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar >
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Back" color="primary" mode="ios" >
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title >Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content > 
+  <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+    <ion-card >
+
+      
+      <!--
+      <ion-list-header>
+        <ion-label>Formulario Valido : {{formulario.valid}}</ion-label>
+      
+      </ion-list-header>
+      -->
+      <ion-card-header>
+        <ion-card-title class="tittle02">Data</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content  >
+        <ion-item >
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" name="name" [(ngModel)]="newdata.name" required></ion-input>
+        </ion-item>
+        <br/>
+        <ion-item  > 
+          <ion-label position="floating">Last name</ion-label>
+          <ion-input type="text" name="lastname" [(ngModel)]="newdata.lastname" required></ion-input>
+        </ion-item>
+        <br/>
+        <ion-item >
+          <ion-label position="floating">Years</ion-label>
+          <ion-input type="number" name="years" [(ngModel)]="newdata.years" required></ion-input>
+        </ion-item>
+        <br/>
+        <ion-item >
+          <ion-label>Gender</ion-label>
+          <ion-select  placeholder="Select One" name="gender" [(ngModel)]="newdata.gender">
+            <ion-select-option value="female">Female</ion-select-option>
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="other">Other</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br/>
+        <ion-item >
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="text" name="email" [(ngModel)]="newdata.email"
+          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required></ion-input>
+        </ion-item>
+        <br>
+        <!--
+        <ion-item >
+          <ion-label position="floating">User name</ion-label>
+          <ion-input type="text" name="username" [(ngModel)]="newdata.username" required></ion-input>
+        </ion-item>
+        <br/>
+        -->
+        <ion-item >
+          <ion-label position="floating">Password</ion-label>
+          <ion-input  type="password" name="password" [(ngModel)]="newdata.password" required></ion-input>
+        </ion-item>
+        <br/>
+        
+        <ion-button [disabled] ="formulario.invalid" (click)="addData()"
+          type="submit" expand="block" shape="round" fill="outline" routerLink="/inicio" >
+          Send Data
+        </ion-button>
+        
+      </ion-card-content>
+      
+    </ion-card>
+  </form>
+
+</ion-content>
